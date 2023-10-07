@@ -1,6 +1,5 @@
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QGroupBox, QButtonGroup, QApplication, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QMessageBox, QRadioButton, QSpinBox
-
+from PyQt5.QtWidgets import *
 
 menu_pushbutton = QPushButton("Меню")
 pouse_continue_pushbutton = QPushButton("Пауза/Старт")
@@ -38,6 +37,18 @@ vert_line_left.addWidget(button1)
 vert_line_left.addWidget(button2)
 vert_line_right.addWidget(button3)
 vert_line_right.addWidget(button4)
+
+dop_hline = QHBoxLayout()
+dop_hline.addLayout(vert_line_left)
+dop_hline.addLayout(vert_line_right)
+dop_hline.setLayoyt(RadioGroupBox)
+
+
+
+
+
+
+
 
 # Horizont line
 horizont_line1 = QHBoxLayout()
@@ -80,11 +91,15 @@ horizont_line3.addWidget(box2)
 box2.hide()
 
 def show_result(): #while push button - answer_pushbutton
-    box1.hide()
+    RadioGroupBox.hide()
     box2.show()
     answer_pushbutton.setText("Наступне питання")
 
 def show_question():
     RadioGroupBox.show()
     answer_pushbutton.hide()
+
+
+
+    
 
