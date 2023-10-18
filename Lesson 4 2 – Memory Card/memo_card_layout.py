@@ -41,7 +41,7 @@ vert_line_right.addWidget(button4)
 dop_hline = QHBoxLayout()
 dop_hline.addLayout(vert_line_left)
 dop_hline.addLayout(vert_line_right)
-dop_hline.setLayoyt(RadioGroupBox)
+RadioGroupBox.setLayoyt(dop_hline)
 
 
 
@@ -100,6 +100,4 @@ def show_question():
     answer_pushbutton.hide()
 
 
-
-    
 
