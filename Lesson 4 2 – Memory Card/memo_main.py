@@ -33,8 +33,7 @@ def check_result():
         label_true_false.setText("Правильно")
         show_result()
     else:
-        incorrect = radio_list[1].isChecked() or radio_list[2].isChecked() or
-        radio_list[3].isChecked()
+        incorrect = radio_list[1].isChecked() or radio_list[2].isChecked() or radio_list[3].isChecked()
         if incorrect:
             label_true_false.setText("Не правильно")
             show_result()
@@ -60,9 +59,6 @@ radio_list[3].setText(frm_wrong3)
 answer1.setText(frm_right)
 
 # while click button
-answer_pushbutton.clicked.connect(show_result)
-
-
 button.clicked.connect(click_Ok)
 
 main_window.setLayout(mainvline)
