@@ -46,7 +46,6 @@ one_vline.addLayout(two_label)
 one_vline.addLayout(three_label)
 one_vline.addLayout(four_label)
 one_vline.addLayout(five_label)
-
 # add QLineEdits to two_hline
 two_vline.addLayout(one_qlineedit)
 two_vline.addLayout(two_qlineedit)
@@ -57,10 +56,9 @@ two_vline.addLayout(five_qlineedit)
 # add one_vline and two_vline to one_hline
 one_hline.addLayout(one_vline)
 one_hline.addLauout(two_vline)
-
 # add pushbuttons to two_hline
-two_hline.addLayout(add_question_pushbutton)
-two_hline.addLayout(clear_pushbutton)
+two_hline.addWidget(add_question_pushbutton)
+two_hline.addWidget(clear_pushbutton)
 
 # add one_hline and two_hline to zero_main_vline
 zero_main_vline.addLayout(one_hline)
