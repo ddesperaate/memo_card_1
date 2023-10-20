@@ -13,7 +13,7 @@ question_window.move(150, 150)
 # vertical lines
 zero_main_vline = QVBoxLayout()
 one_vline = QVBoxLayout()
-tow_vline = QVBoxLayout()
+two_vline = QVBoxLayout()
 
 # horizont lines
 one_hline = QHBoxLayout()
@@ -39,19 +39,53 @@ clear_pushbutton = QPushButton("Очистити")
 next_pushbutton = QPushButton("Далі")
 
 
+
 #---------------------------------------------------------
 # add labels to one_hline
-one_vline.addLayout(one_label)
-one_vline.addLayout(two_label)
-one_vline.addLayout(three_label)
-one_vline.addLayout(four_label)
-one_vline.addLayout(five_label)
+#one_vline.addLayout(one_label)
+#one_vline.addLayout(two_label)
+#one_vline.addLayout(three_label)
+#one_vline.addLayout(four_label)
+#one_vline.addLayout(five_label)
+one_vline_label_layout = QVBoxLayout()
+one_vline_label_layout.addWidget(one_label)
+one_vline.addLayout(one_vline_label_layout)
+
+one_vline_label_layout.addWidget(two_label)
+one_vline.addLayout(one_vline_label_layout)
+
+one_vline_label_layout.addWidget(three_label)
+one_vline.addLayout(one_vline_label_layout)
+
+one_vline_label_layout.addWidget(four_label)
+one_vline.addLayout(one_vline_label_layout)
+
+one_vline_label_layout.addWidget(five_label)
+one_vline.addLayout(one_vline_label_layout)
+
+
 # add QLineEdits to two_hline
-two_vline.addLayout(one_qlineedit)
-two_vline.addLayout(two_qlineedit)
-two_vline.addLayout(three_qlineedit)
-two_vline.addLayout(four_qlineedit)
-two_vline.addLayout(five_qlineedit)
+#two_vline.addLayout(one_qlineedit)
+#two_vline.addLayout(two_qlineedit)
+#two_vline.addLayout(three_qlineedit)
+#two_vline.addLayout(four_qlineedit)
+#two_vline.addLayout(five_qlineedit)
+two_vline_label_layout = QVBoxLayout()
+two_vline_label_layout.addWidget(one_qlineedit)
+two_vline.addLayout(two_vline_label_layout)
+
+two_vline_label_layout.addWidget(two_qlineedit)
+two_vline.addLayout(two_vline_label_layout)
+
+two_vline_label_layout.addWidget(three_qlineedit)
+two_vline.addLayout(two_vline_label_layout)
+
+two_vline_label_layout.addWidget(four_qlineedit)
+two_vline.addLayout(two_vline_label_layout)
+
+two_vline_label_layout.addWidget(five_qlineedit)
+two_vline.addLayout(two_vline_label_layout)
+
 
 # add one_vline and two_vline to one_hline
 one_hline.addLayout(one_vline)
