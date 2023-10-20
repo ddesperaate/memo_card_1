@@ -39,7 +39,7 @@ def check_result():
             show_result()
 
 def click_Ok(self):
-    if label_true_false.text() != "Наступне питання":
+    if label_true_false.text() == "Наступне питання":
         check_rusult()
     
 
@@ -59,7 +59,9 @@ radio_list[3].setText(frm_wrong3)
 answer1.setText(frm_right)
 
 # while click button
-button.clicked.connect(click_Ok)
+answer_pushbutton.clicked.connect(click_Ok)
+
+
 
 main_window.setLayout(mainvline)
 main_window.show()
