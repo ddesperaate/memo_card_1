@@ -1,103 +1,108 @@
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QMessageBox, QRadioButton, QLineEdit
-
-
-# crate main objects
+from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QApplication
 app = QApplication([])
-question_window = QWidget()
-question_window.setWindowTitle("Question Card")
-qcard_width, qcard_height = 600, 700
-question_window.resize(qcard_width, qcard_height)
-question_window.move(150, 150)
 
-# vertical lines
-zero_main_vline = QVBoxLayout()
-one_vline = QVBoxLayout()
-two_vline = QVBoxLayout()
+menu_pushbutton = QPushButton("Меню")
+pouse_continue_pushbutton = QPushButton("Пауза/Старт")
+answer_pushbutton = QPushButton("Відповідь")
 
-# horizont lines
-one_hline = QHBoxLayout()
-two_hline = QHBoxLayout()
+button1 = QRadioButton("1")
+button2 = QRadioButton("2")
+button3 = QRadioButton("3")
+button4 = QRadioButton("4")
 
-# create labels
-one_label = QLabel("Введіть запитання")
-two_label = QLabel("Введіть вірну відповідь")
-three_label = QLabel("Введіть першу хибну відповідь")
-four_label = QLabel("Введіть другу хибну відповідь")
-five_label = QLabel("Введіть третю хибну відповідь")
+# create main vert line
+mainvline = QVBoxLayout()
 
-# create QLineEdit
-one_qlineedit = QLineEdit()
-two_qlineedit = QLineEdit()
-three_qlineedit = QLineEdit()
-four_qlineedit = QLineEdit()
-five_qlineedit = QLineEdit()
+# Об'єднання радіобаттонів у одну групу
+RadioGroupBox = QGroupBox("Варіанти відповідей")
 
-# create pushbuttons
-add_question_pushbutton = QPushButton("Додати запитання")
-clear_pushbutton = QPushButton("Очистити")
-next_pushbutton = QPushButton("Далі")
+# Рамка для групи перемекичів з відповідями
+RadioGroup = QButtonGroup()
 
+RadioGroup.addButton(button1)
+RadioGroup.addButton(button2)
+RadioGroup.addButton(button3)
+RadioGroup.addButton(button4)
 
+#spin_button
+box_minutes = QSpinBox()
+box_minutes.setValue(30)
 
-#---------------------------------------------------------
-# add labels to one_hline
-#one_vline.addLayout(one_label)
-#one_vline.addLayout(two_label)
-#one_vline.addLayout(three_label)
-#one_vline.addLayout(four_label)
-#one_vline.addLayout(five_label)
-one_vline_label_layout = QVBoxLayout()
-one_vline_label_layout.addWidget(one_label)
-one_vline.addLayout(one_vline_label_layout)
+# create two vertical line
+vert_line_left = QVBoxLayout()
+vert_line_right = QVBoxLayout()
 
-one_vline_label_layout.addWidget(two_label)
-one_vline.addLayout(one_vline_label_layout)
+# add four radiobutton on two vertical line
+vert_line_left.addWidget(button1)
+vert_line_left.addWidget(button2)
+vert_line_right.addWidget(button3)
+vert_line_right.addWidget(button4)
 
-one_vline_label_layout.addWidget(three_label)
-one_vline.addLayout(one_vline_label_layout)
-
-one_vline_label_layout.addWidget(four_label)
-one_vline.addLayout(one_vline_label_layout)
-
-one_vline_label_layout.addWidget(five_label)
-one_vline.addLayout(one_vline_label_layout)
+dop_hline = QHBoxLayout()
+dop_hline.addLayout(vert_line_left)
+dop_hline.addLayout(vert_line_right)
+RadioGroupBox.setLayout(dop_hline)
 
 
-# add QLineEdits to two_hline
-#two_vline.addLayout(one_qlineedit)
-#two_vline.addLayout(two_qlineedit)
-#two_vline.addLayout(three_qlineedit)
-#two_vline.addLayout(four_qlineedit)
-#two_vline.addLayout(five_qlineedit)
-two_vline_label_layout = QVBoxLayout()
-two_vline_label_layout.addWidget(one_qlineedit)
-two_vline.addLayout(two_vline_label_layout)
-
-two_vline_label_layout.addWidget(two_qlineedit)
-two_vline.addLayout(two_vline_label_layout)
-
-two_vline_label_layout.addWidget(three_qlineedit)
-two_vline.addLayout(two_vline_label_layout)
-
-two_vline_label_layout.addWidget(four_qlineedit)
-two_vline.addLayout(two_vline_label_layout)
-
-two_vline_label_layout.addWidget(five_qlineedit)
-two_vline.addLayout(two_vline_label_layout)
 
 
-# add one_vline and two_vline to one_hline
-one_hline.addLayout(one_vline)
-one_hline.addLauout(two_vline)
-# add pushbuttons to two_hline
-two_hline.addWidget(add_question_pushbutton)
-two_hline.addWidget(clear_pushbutton)
-
-# add one_hline and two_hline to zero_main_vline
-zero_main_vline.addLayout(one_hline)
-zero_main_vline.addLayout(two_hline)
 
 
-# set zero_main_vline on question_window
-question_window.setLayout(zero_main_vline)
+
+
+# Horizont line
+horizont_line1 = QHBoxLayout()
+horizont_line1.addWidget(menu_pushbutton)
+horizont_line1.addWidget(pouse_continue_pushbutton)
+horizont_line1.addWidget(box_minutes)
+minutes_left = QLabel("хвилин")
+horizont_line1.addWidget(minutes_left)
+
+# second H line
+horizont_line2 = QHBoxLayout()
+question = QLabel("Apple")
+horizont_line2.addWidget(question)
+
+# third H line
+horizont_line3 = QHBoxLayout()
+horizont_line3.addWidget(RadioGroupBox)
+#                   RadioGroup.setLayout(horizont_line3)
+
+# fourth H line
+horizont_line4 = QHBoxLayout()
+horizont_line4.addWidget(answer_pushbutton)
+
+
+
+# ---------- New Online Lesson 1 ----------
+
+# ----- Box 2 with answers
+box2 = QGroupBox("Результат теста")
+
+label_true_false = QLabel(" idk ")
+answer1 = QLabel(" ")#apple
+
+v_res = QVBoxLayout()
+v_res.addWidget(label_true_false, alignment = (Qt.AlignTop| Qt.AlignLeft))
+v_res.addWidget(answer1, alignment = Qt.AlignCenter, stretch = 2)
+box2.setLayout(v_res)
+
+horizont_line3.addWidget(box2)
+box2.hide()
+
+def show_result(): #while push button - answer_pushbutton
+    RadioGroupBox.hide()
+    box2.show()
+    answer_pushbutton.setText("Наступне питання")
+
+def show_question():
+    RadioGroupBox.show()
+    box2.hide()
+
+# set all widgets on main window
+mainvline.addLayout(horizont_line1)
+mainvline.addLayout(horizont_line2)
+mainvline.addLayout(horizont_line3)
+mainvline.addLayout(horizont_line4)
