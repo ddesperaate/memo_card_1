@@ -5,6 +5,7 @@ from random import shuffle
 
 # import module second
 from memo_card_layout import *
+from memo_question_layout import *
 
 # crate main objects
 app = QApplication([])
@@ -15,12 +16,7 @@ main_window.resize(card_width, card_height)
 main_window.move(50, 50)
             
         
-# forms with answers
-frm_question = "Яблуко"
-frm_right = "apple"
-frm_wrong1 = "application"
-frm_wrong2 = "building"
-frm_wrong3 = "catterpilar"
+
 
 # create list
 radio_list = [button1, button2, button3, button4]
@@ -41,8 +37,21 @@ def check_result():
 def click_Ok(self):
     if label_true_false.text() == "Наступне питання":
         check_rusult()
-    
 
+# list questions
+question_list = []
+
+
+# forms with answers
+def create_question():
+    frm_question = one_qlineedit.text()
+    frm_right = two_qlineedit.text()
+    frm_wrong1 = three_qlineedit.text()
+    frm_wrong2 = four_qlineedit.text()
+    frm_wrong3 = five_qlineedit.text()
+
+    q = Question(frm_question, frm_right, frm_wrong1, frm_wrong2, frm_wrong3)
+    question_list.append(q)
 
 
 
@@ -61,9 +70,16 @@ answer1.setText(frm_right)
 # while click button
 answer_pushbutton.clicked.connect(click_Ok)
 
+next_pushbutton.clicked.connect(create_question)
+
+
 
 
 main_window.setLayout(mainvline)
+
+# set zero_main_vline on question_window
+question_window.setLayout(zero_main_vline)
+#question_window.show()
 main_window.show()
 app.exec_()
 
