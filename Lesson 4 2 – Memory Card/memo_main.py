@@ -42,6 +42,12 @@ def click_Ok(self):
 question_list = []
 
 
+
+frm_question = one_qlineedit.text()
+frm_right = two_qlineedit.text()
+frm_wrong1 = three_qlineedit.text()
+frm_wrong2 = four_qlineedit.text()
+frm_wrong3 = five_qlineedit.text()
 # forms with answers
 def create_question():
     frm_question = one_qlineedit.text()
@@ -52,6 +58,14 @@ def create_question():
 
     q = Question(frm_question, frm_right, frm_wrong1, frm_wrong2, frm_wrong3)
     question_list.append(q)
+
+
+def crear_qlineedit():
+    one_qlineedit.clear()
+    two_qlineedit.clear()
+    three_qlineedit.clear()
+    four_qlineedit.clear()
+    five_qlineedit.clear()
 
 
 
@@ -72,6 +86,8 @@ answer_pushbutton.clicked.connect(click_Ok)
 
 next_pushbutton.clicked.connect(create_question)
 
+clear_pushbutton.clicked.connect(crear_qlineedit)
+
 
 
 
@@ -79,7 +95,7 @@ main_window.setLayout(mainvline)
 
 # set zero_main_vline on question_window
 question_window.setLayout(zero_main_vline)
-#question_window.show()
+question_window.show()
 main_window.show()
 app.exec_()
 
