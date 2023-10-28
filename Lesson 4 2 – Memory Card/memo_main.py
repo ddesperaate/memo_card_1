@@ -1,6 +1,10 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QMessageBox, QRadioButton
 from random import shuffle
+from random import choice
+from PyQt5.QtCore import QTimer
+time_unit = 60000 # one minute
+timer = QTimer
 
 
 # import module second
@@ -48,7 +52,9 @@ frm_right = two_qlineedit.text()
 frm_wrong1 = three_qlineedit.text()
 frm_wrong2 = four_qlineedit.text()
 frm_wrong3 = five_qlineedit.text()
+
 # forms with answers
+# считывание информации
 def create_question():
     frm_question = one_qlineedit.text()
     frm_right = two_qlineedit.text()
@@ -69,14 +75,32 @@ def crear_qlineedit():
 
 
 
+def start_answer():
+    random_question = choice(question_list)
+    # set text on buttons
+    radio_list[0].setText(random_question.answer)
+    radio_list[1].setText(random_question.wrong_answer1)
+    radio_list[2].setText(random_question.wrong_answer2)
+    radio_list[3].setText(random_question.wrong_answer3)
+    question_widget.setText(random_question.question)
+    # правил.вариант.setText(random_question.answer)
+
+
+def sleep():
+    main_window.hide()
+    boxtime = box_minutes.text()
+    int(boxtime)
+    timer.setInterval(boxtime * time_unit)
+
+
+def wakeup():
+    
+
+
 # shuffle buttons
 shuffle(radio_list)
 
-# set text on buttons
-radio_list[0].setText(frm_right)
-radio_list[1].setText(frm_wrong1)
-radio_list[2].setText(frm_wrong2)
-radio_list[3].setText(frm_wrong3)
+
 
 # blit right answer
 answer1.setText(frm_right)
@@ -87,6 +111,8 @@ answer_pushbutton.clicked.connect(click_Ok)
 next_pushbutton.clicked.connect(create_question)
 
 clear_pushbutton.clicked.connect(crear_qlineedit)
+
+next_pushbutton.clicked.connect(start_answer)
 
 
 
