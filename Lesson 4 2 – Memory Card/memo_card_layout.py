@@ -62,13 +62,12 @@ horizont_line1.addWidget(minutes_left)
 
 # second H line
 horizont_line2 = QHBoxLayout()
-question = QLabel("Apple")
-horizont_line2.addWidget(question)
+question_widget = QLabel("Apple")
+horizont_line2.addWidget(question_widget)
 
 # third H line
 horizont_line3 = QHBoxLayout()
 horizont_line3.addWidget(RadioGroupBox)
-#                   RadioGroup.setLayout(horizont_line3)
 
 # fourth H line
 horizont_line4 = QHBoxLayout()
