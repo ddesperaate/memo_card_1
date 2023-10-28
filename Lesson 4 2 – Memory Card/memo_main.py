@@ -91,9 +91,13 @@ def sleep():
     boxtime = box_minutes.text()
     int(boxtime)
     timer.setInterval(boxtime * time_unit)
+    timer.start()
+    timer.timeout.connect(wakeup)
 
 
 def wakeup():
+    timer.stop()
+    #okno_show
     
 
 
