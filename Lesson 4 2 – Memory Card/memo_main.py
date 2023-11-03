@@ -83,7 +83,7 @@ def start_answer():
     radio_list[2].setText(random_question.wrong_answer2)
     radio_list[3].setText(random_question.wrong_answer3)
     question_widget.setText(random_question.question)
-    # правил.вариант.setText(random_question.answer)
+    answer.setText(random_question.answer)
 
 
 def sleep():
@@ -97,7 +97,7 @@ def sleep():
 
 def wakeup():
     timer.stop()
-    #okno_show
+    main_window.show
     
 
 
